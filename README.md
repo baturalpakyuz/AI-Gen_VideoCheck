@@ -31,7 +31,7 @@ Installation & Execution
 git clone https://github.com/baturalpakyuz/AI-Gen_VideoCheck.git
 cd ai-video-detection
 
-3. Configure Components
+2. Configure Components
 
 NGINX Setup
 -----------------
