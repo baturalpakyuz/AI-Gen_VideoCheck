@@ -53,7 +53,7 @@ php-cgi.exe -b 127.0.0.1:9123
 Flask API Launch
 ----------------
 1. Install dependencies
-pip install -r requirements.txt
+pip install -r "dependency"
 
 2. Start Flask backend
 python api/app.py
