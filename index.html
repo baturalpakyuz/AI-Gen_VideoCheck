@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Design and Appllication Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        <html lang="en" xmlns="http://www.w3.org/1999/xhtml" >
+        <head >
+        <meta charset="utf-8" / >
+        <title > Design and Appllication Website</title >
+        <style >
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AI GENERATED VIDEO DETECTION</h1>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h2>Upload the Video For AI Check</h2>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                <input type="file" id="videoFile" name="videoFile" accept="video/*">
+                <br> <br />
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+<!--<button id="runProject">Run MyProject</button>
+
+  <script>
+      document.getElementById("runProject").addEventListener("click", function () {
+          // Get the uploaded video file
+          var videoFile = document.getElementById("videoFile").files[0];
+
+          // Create a FormData object to send the file data
+          var formData = new FormData();
+          formData.append("videoFile", videoFile);
+
+          // Send a POST request to the Flask server to process the video
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/process_video_and_ai_detection");
+          xhr.onload = function () {
+              if (xhr.status === 200) {
+                  alert("MyProject executed successfully!");
+              } else {
+                  alert("Error executing MyProject: " + xhr.statusText);
+              }
+          };
+          xhr.send(formData);
+      });
+  </script>-->
