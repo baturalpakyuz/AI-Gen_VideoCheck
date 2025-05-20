@@ -1,106 +1,95 @@
-Project Overview
-AI Video Detection System is a web-based solution designed for real-time identification of AI-generated videos. By combining the high‐performance Nginx web server, Sightengine’s AI detection API, and a versatile backend stack (PHP, Python, and Flask), this system delivers accurate, low-latency detection suitable for security, content-moderation, and abuse-prevention scenarios.
+AI Video Detection System
+
+A web-based platform for real-time detection of AI-generated videos, combining Nginx, Sightengine's AI API, and a hybrid PHP/Python/Flask backend. Designed for security, content moderation, and abuse prevention. It is important that this project has not been proven to correctly evaluate all the videos. This project is decided in February 2024 and finished in May 2024.
 
 Features
-Real-Time Detection: Streams video frames through Sightengine for on-the-fly analysis.
+- Real-Time Analysis: Instant frame-by-frame AI detection via Sightengine
+- Modular Architecture:
+  * Nginx web server for static assets and reverse proxying
+  * PHP frontend for UI rendering
+  * Flask (Python) API wrapper for AI integration
+- Low Latency: Optimized pipeline for rapid video processing
+- Cross-Platform: Windows-compatible deployment
 
-Modular Architecture:
+Prerequisites
+- Windows 10/11
+- Nginx 1.18+
+- PHP 8.1+ (CGI enabled)
+- Python 3.8+
+- Sightengine API credentials
 
-Nginx serves static assets and proxies API calls.
-
-PHP handles front-end routing and HTML rendering.
-
-Flask (Python) exposes a REST API that wraps Sightengine’s detection endpoints.
-
-Scalable Design: Easily swap Sightengine for another AI service or deploy behind a load balancer.
-
-Intuitive UI: Simple web interface lets users upload or stream videos and view detection results live.
-
-System Architecture
-text
-Copy
-Edit
-┌──────────┐     ┌───────────┐     ┌─────────────┐
-│  Browser │←───▶│   Nginx   │←───▶│   PHP/UI    │
-└──────────┘     └───────────┘     └────┬────────┘
-                                           │
-                                           ▼
-                                    ┌─────────────┐
-                                    │  Flask API  │
-                                    └────┬────────┘
-                                           │
-                                           ▼
-                                    ┌─────────────┐
-                                    │ Sightengine │
-                                    └─────────────┘
 Installation & Execution
-Before running, ensure you have Nginx, PHP-CGI, and Python 3.8+ installed on your Windows machine.
 
-1. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/AI-Gen_VideoCheck.git
-cd AI-Gen_VideoCheck
-2. Step 5.1 – Start Nginx
-Nginx is installed in C:\nginx (adjust if yours differs).
+1. Clone Repository
+git clone https://github.com/yourusername/ai-video-detection.git
+cd ai-video-detection
 
-Open Visual Studio PowerShell and run:
+2. Configure Components
 
-powershell
-Copy
-Edit
-cd C:\nginx
-.\nginx.exe
-Figure 5.1: Nginx execution in PowerShell.
+NGINX Setup
+-----------------
+1. Navigate to Nginx directory (default: C:/nginx)
+cd C:/nginx
 
-3. Step 5.2 – Launch PHP-CGI
-PHP-CGI is bundled inside your Nginx folder.
+2. Start Nginx server
+start nginx
 
-Open an Administrator CMD and run:
+[Image: nginx.exe Startup Commands]
 
-cmd
-Copy
-Edit
-cd C:\nginx
+PHP-CGI Initialization
+----------------------
+Run as Administrator in CMD:
 php-cgi.exe -b 127.0.0.1:9123
-This binds PHP processing to port 9123.
-Figure 5.2: php-cgi.exe execution.
 
-4. Step 5.3 – Run the Flask App
-Ensure your Python virtual environment is activated and dependencies installed (pip install -r requirements.txt). Then:
+[Image: PHP CGI Startup]
 
-bash
-Copy
-Edit
-cd backend
-python app.py
-This starts the Flask API on its configured host/port.
-Figure 5.3: Flask application startup.
+Flask API Launch
+----------------
+1. Install dependencies
+pip install -r requirements.txt
 
-Usage
-Open your browser to http://127.0.0.1:80 (or custom Nginx port).
+2. Start Flask backend
+python api/app.py
 
-Upload or stream a video file via the web interface.
+[Image: Flask API Startup]
 
-Watch real-time AI-detection results appear below the video.
+3. Configure Environment
+Create .env file with your Sightengine credentials:
+SIGHTENGINE_USER=your_username
+SIGHTENGINE_SECRET=your_api_secret
 
-Further Improvements
-6.1 Web-Accessible Deployment
-Deploy on a public-facing server or use tunneling tools (e.g., LocalTunnel, ngrok) to expose your local Nginx securely. Consider purchasing a domain and obtaining SSL certificates.
+Usage Guide
+1. Access the web interface at http://localhost
+2. Upload video files (MP4, MOV, AVI)
+3. View real-time detection results
+4. Review analysis report with AI-generated content probability
 
-6.2 Enhance API Throughput
-Sightengine’s free tier limits you to 500 frames/day (~15 s of video). To handle longer videos, upgrade to a paid API plan or integrate additional detection engines for load-sharing.
+[Image: Workflow Diagram - Upload → Analyze → Results]
 
-6.3 User Interface & Documentation
-Add dedicated pages for About, How It Works, Contact Us, and Disclaimer to guide end users and clarify AI-detection accuracy and limitations.
+Future Improvements
+1. Cloud Deployment
+   - Implement SSL/TLS via Let's Encrypt
+   - Use tunneling tools (ngrok/LocalTonet) for secure web access
+
+2. Enhanced API Capacity
+   - Upgrade to Sightengine Premium (10,000+ frames/day)
+   - Add multi-engine fallback support
+
+3. UI/UX Expansion
+   - Add informational pages:
+     * /about - Project details
+     * /how-it-works - Technical explanation
+     * /disclaimer - Accuracy limitations
+     * /contact - Support channels
+   - Implement user authentication
 
 License
-This project is licensed under the MIT License. See LICENSE for details.
+This project is licensed under the MIT License - see LICENSE file for details.
 
 Acknowledgments
-Sightengine for the powerful AI-detection API
+- Sightengine for AI detection API
+- Nginx team for high-performance web server
+- Flask/PHP open-source communities
+- Contributors to Python computer vision libraries
 
-Nginx for reliable web serving
-
-Open-source communities for PHP, Flask, and PyPI packages used throughout this system
+Important Note: Free-tier Sightengine accounts are limited to 500 frames/day. For commercial use, consider Sightengine enterprise plans.
