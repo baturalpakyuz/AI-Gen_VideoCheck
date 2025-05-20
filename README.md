@@ -10,7 +10,8 @@ Features
   * Flask (Python) API wrapper for AI integration
 - Low Latency: Optimized pipeline for rapid video processing
 - Cross-Platform: Windows-compatible deployment
-
+Example:
+![Image](https://github.com/user-attachments/assets/b6695ff9-192e-47f8-9e87-41b7aabcfab0)
 Prerequisites
 - Windows 10/11
 - Nginx 1.18+
