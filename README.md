@@ -10,7 +10,7 @@ Features
   * Flask (Python) API wrapper for AI integration
 - Low Latency: Optimized pipeline for rapid video processing
 - Cross-Platform: Windows-compatible deployment
-- 
+ 
 Example:
 
 
