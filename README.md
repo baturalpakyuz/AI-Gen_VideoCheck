@@ -21,7 +21,7 @@ Prerequisites
 Installation & Execution
 
 1. Clone Repository
-git clone https://github.com/yourusername/ai-video-detection.git
+git clone https://github.com/baturalpakyuz/ai-video-detection.git
 cd ai-video-detection
 
 2. Configure Components
