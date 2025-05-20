@@ -41,14 +41,11 @@ cd C:/nginx
 2. Start Nginx server
 start nginx
 
-[Image: nginx.exe Startup Commands]
-
 PHP-CGI Initialization
 ----------------------
 Run as Administrator in CMD:
 php-cgi.exe -b 127.0.0.1:9123
 
-[Image: PHP CGI Startup]
 
 Flask API Launch
 ----------------
@@ -58,7 +55,6 @@ pip install -r "dependency"
 2. Start Flask backend
 python api/app.py
 
-[Image: Flask API Startup]
 
 3. Configure Environment
 Create .env file with your Sightengine credentials:
@@ -71,7 +67,6 @@ Usage Guide
 3. View real-time detection results
 4. Review analysis report with AI-generated content probability
 
-[Image: Workflow Diagram - Upload → Analyze → Results]
 
 Future Improvements
 1. Cloud Deployment
